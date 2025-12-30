@@ -4,22 +4,22 @@
 Installation
 ============
 
-There are three ways you can use pyradiomics:
+There are several ways you can use pyradiomics:
 1. Install via pip
-2. Install from source
-3. Use 3D Slicer Radiomics extension
-4. Use pyradiomics Docker
+2. Install via conda
+3. Install from source
+4. Use 3D Slicer Radiomics extension
+5. Use pyradiomics Docker
 
 ------------------
 1. Install via pip
 ------------------
 
-Pre-built binaries are available on PyPi for installation via pip. For the python versions
-mentioned below, wheels are automatically generated for each release of PyRadiomics, allowing you to
-install pyradiomics without having to compile anything. For other python versions, a source distribution
-is also available, but this requires compiling the C extensions.
+Pre-built binaries are available on PyPi for installation via pip. Wheels are generated for each supported CPython
+release (currently 3.9-3.13), allowing you to install PyRadiomics without compiling anything. If you use another
+version of Python you may fall back to the source distribution, which requires compiling the C extensions.
 
-* Ensure that you have ``python`` installed on your machine, version 3.5, 3.6 or 3.7 (64-bits).
+* Ensure that you have ``python`` installed on your machine, version 3.9 or newer (64-bits).
 
 * Install PyRadiomics::
 
@@ -44,7 +44,7 @@ of texture matrices and some shape features.
 
 * Ensure you have the version control system ``git`` installed on your machine.
 
-* Ensure that you have ``python`` installed on your machine, at least version 3.5 (64-bits).
+* Ensure that you have ``python`` installed on your machine, at least version 3.9 (64-bits).
 
 * Clone the repository::
 
@@ -60,25 +60,25 @@ of texture matrices and some shape features.
 
       python -m pip install -e ".[dev,test,docs]"
 
-  * If you don't have sudo/admin rights on your machine, you need to locally install numpy, nose, tqdm, PyWavelets, SimpleITK (specified in requirements.txt).
-    In a bash shell::
+  * If you don't have sudo/admin rights on your machine, install PyRadiomics (and any desired extras) with ``--user``::
 
-      pip install --user --upgrade pip
-      export PATH=$HOME/.local/bin:$PATH
-      pip install --user -r requirements.txt
-      export PYTHONPATH=$HOME/.local/lib64/python2.7/site-packages
+      python -m pip install --user --upgrade pip
+      python -m pip install --user -e ".[dev,test,docs]"
 
 * For Windows::
 
-    cd pyradiomics
-    python install .
+      cd pyradiomics
+      python -m pip install .
+
+  * To install editable extras on Windows::
+
+      python -m pip install -e ".[dev,test,docs]"
 
 * If the installation fails, check out the :ref:`radiomics-faq-label`. If your error is not listed there,
   contact us by `creating an issue <https://github.com/Radiomics/pyradiomics/issues/new>`_ on the PyRadiomics
   Github.
 
-------------------------------------
-3. Use 3D Slicer Radiomics extension
+4. Use 3D Slicer Radiomics extension
 ------------------------------------
 
 3D Slicer is a free open source research platform for medical image computing. Learn more and download 3D Slicer binary for your platform here: http://slicer.org.
@@ -89,8 +89,7 @@ of tools in 3D Slicer to automate your segmentation tasks.
 
 More detailed instructions about installing 3D Slicer Radiomics extension are available here: https://github.com/Radiomics/SlicerRadiomics
 
--------------------------
-4. Use pyradiomics Docker
+5. Use pyradiomics Docker
 -------------------------
 
 This approach may be preferred if you are interested in using pyradiomics from the command line, but have difficulties installing the library on your system.

@@ -87,12 +87,13 @@ Furthermore, an instruction video is available
 
 ### Installation
 
-PyRadiomics is OS independent and compatible with Python >= 3.5. Pre-built
-binaries are available on PyPi and Conda. To install PyRadiomics, ensure you
-have python installed and run:
+PyRadiomics is OS independent and compatible with Python >= 3.9. We regularly
+test (and publish wheels for) CPython 3.9 through 3.13, including Python 3.12.
+To install PyRadiomics, ensure you have a supported 64-bit version of Python
+and run:
 
-```
-`python -m pip install pyradiomics`
+```bash
+python -m pip install pyradiomics
 ```
 
 Detailed installation instructions, as well as instructions for building

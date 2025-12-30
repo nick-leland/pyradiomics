@@ -6,6 +6,18 @@ Release Notes
 Next Release
 ------------
 
+Documentation
+#############
+
+- Refresh installation/compatibility docs (README, FAQ, developer guide) to state that PyRadiomics
+  supports Python 3.9-3.13, including Python 3.12.
+
+Packaging
+#########
+
+- Update the Conda recipe to require Python >=3.9 as well as the newer dependency versions needed for
+  Python 3.12 wheels.
+
 -----------------
 PyRadiomics 3.1.0
 -----------------

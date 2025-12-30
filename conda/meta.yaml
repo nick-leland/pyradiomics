@@ -13,21 +13,21 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - python
+    - python >=3.9
     - git
   host:
-    - python
-    - numpy >=1.9.2
+    - python >=3.9
+    - numpy >=2.0
     - pip
     - pykwalify >=1.6.0
-    - pywavelets >=0.4.0
-    - SimpleITK !=1.1.0
+    - pywavelets >=1.6.0
+    - SimpleITK >=2.4.0
   run:
-    - python
-    - numpy >=1.9.2
+    - python >=3.9
+    - numpy >=2.0
     - pykwalify >=1.6.0
-    - pywavelets >=0.4.0
-    - SimpleITK !=1.1.0
+    - pywavelets >=1.6.0
+    - SimpleITK >=2.4.0
     - scipy
     - scikit-learn
     - trimesh

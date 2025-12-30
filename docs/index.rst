@@ -108,14 +108,14 @@ and filters, thereby enabling fully reproducible feature extraction. For more in
 * PyWavelets (Wavelet filter)
 * pykwalify (Enabling yaml parameters file checking)
 
-See also the `requirements file <https://github.com/Radiomics/pyradiomics/blob/master/requirements.txt>`_.
+See also the `pyproject file <https://github.com/AIM-Harvard/pyradiomics/blob/master/pyproject.toml>`_ for the exact
+set of runtime and optional dependencies.
 
 Installation
 ------------
 
-PyRadiomics is OS independent and compatible with and Python >=3.5. Pre-built binaries are available on
-PyPi and Conda. To install PyRadiomics, ensure you have python
-installed and run:
+PyRadiomics is OS independent and compatible with Python >=3.9. We publish wheels for CPython 3.9-3.13 (including
+Python 3.12) on PyPI and Conda. To install PyRadiomics, ensure you have a supported 64-bit Python installed and run:
 
 *  ``python -m pip install pyradiomics``
 

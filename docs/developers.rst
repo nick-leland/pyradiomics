@@ -216,8 +216,8 @@ Code style
 ***********
 
 To keep the PyRadiomics code consistent and as readable as possible, some style rules are enforced. These are part of
-the continuous testing and implemented using flake8. See also the ``.flake8`` configuration file in the root of the
-repository. To aid in keeping a consistent code style, a ``.editorconfig`` file is provided in the root of the folder.
+the continuous testing and implemented via ``pre-commit`` hooks that run Ruff (configured in ``pyproject.toml``).
+To aid in keeping a consistent code style, a ``.editorconfig`` file is provided in the root of the folder.
 
 Module names should be lowercase, without underscores or spaces. Class names, function names and variables should be
 declared using camelcase, with uppercase first letter for class names and lowercase first letter otherwise. Private
@@ -259,24 +259,17 @@ If you make edits to the documentation, or if you want to test how documentation
 Testing
 *******
 
-To ensure consistency in the extraction provided by PyRadiomics, continuous testing is used to test the PyRadiomics
-source code after each commit. These tests are defined in the test folder and used to run tests for the following
-environments:
+To ensure consistency in the extraction provided by PyRadiomics, every pull request and push triggers our GitHub Actions
+workflows. Formatting checks run first, followed by the test matrix on Linux, Windows and macOS for CPython 3.9, 3.10,
+3.11, 3.12 and 3.13 (all 64-bit). The tests themselves are defined in the ``tests`` folder and executed with ``pytest``.
 
-    - Python 2.7 64 bits (Windows, Linux and Mac)
-    - Python 3.4 64 bits (Windows and Linux)
-    - Python 3.5 64 bits (Windows and Linux)
+There are three primary suites:
 
-.. note::
-
-    Python 3 testing for mac is currently disabled for Mac due to some issues with the SimpleITK package for python 3.
-
-There are 3 testing scripts run for PyRadiomics. The first test is ``test_cmatrices``, which asserts if the matrices
-calculated by the C extensions match those calculated by Python. A threshold of 1e-3 is used to allow for machine
-precision errors. The second test is ``test_docstrings``, which asserts if there is missing documentation as described
-above. The final and most important test is ``test_features``, which compares the features calculated by PyRadiomics
-against a known baseline using 5 test cases. These test cases and the baseline are stored in the ``data`` folder of the
-repository. This ensures that changes to the code do not silently change the calculated values of the features.
+* ``test_cmatrices`` validates that the matrices calculated by the C extensions match those calculated by Python
+  (a tolerance of 1e-3 is allowed for floating-point differences).
+* ``test_docstrings`` ensures required documentation strings exist so new features show up in the reference docs.
+* ``test_features`` compares the calculated features against the known baseline for several test cases stored in the
+  ``data`` folder. This guards against behavioral regressions in feature extraction.
 
 To add a new feature class to the baseline, run the ``addClassToBaseline.py`` script, contained in the ``bin`` folder.
 This script detects if there are feature classes in PyRadiomics, for which there is no baseline available. If any are

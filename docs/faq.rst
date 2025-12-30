@@ -363,11 +363,10 @@ Miscellaneous
 Which python versions is PyRadiomics compatible with?
 #####################################################
 
-PyRadiomics is compatible with python 3. Python 2 support was dropped in PyRadiomics version 3.0, though compatibility
-code was retained. However, the automated testing only uses python versions 3.5, 3.6 and 3.7 (64 bits architecture).
-Python < 2.6 is not supported. Other python versions may be compatible with PyRadiomics, but this is not actively tested
-and therefore not guaranteed to work. Pre-built wheels are only available for the tested versions of python (3.5, 3.6
-and 3.7)
+PyRadiomics targets modern, 64-bit CPython releases. Python 2 support was dropped in PyRadiomics version 3.0, and the
+current release cycle officially supports Python >= 3.9. Continuous integration (and our pre-built wheels) cover
+CPython 3.9 through 3.13 across Linux, Windows and macOS, including Python 3.12. Other Python versions may work but are
+not part of the automated test matrix, so they are not guaranteed to function.
 
 A new version of PyRadiomics is available! Where can I find out what changed?
 #############################################################################
